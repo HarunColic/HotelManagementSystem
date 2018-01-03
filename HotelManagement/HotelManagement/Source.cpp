@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cmath>
+#include<regex>
 #include"Room.h"
 #include"Date.h"
 #include"User.h"
@@ -75,12 +76,13 @@ int main() {
 		cout << "2. Guest menu" << endl;
 
 		int inputMenu;
+		
+		while (inputMenu < 1 || inputMenu > 2 && !(cin >> inputMenu)) {
 
-		do
-		{
 			cin >> inputMenu;
-
-		} while (inputMenu < 1 || inputMenu > 2);
+			cin.clear();
+			cin.ignore(100, '\n');
+		}
 
 		if (inputMenu == 1) {
 
