@@ -272,8 +272,7 @@ public:
 		COUT << "Room Description: " << R._roomDescription << endl;
 		COUT << "Room price (per day)" << R._dailyRoomPrice << endl;
 		COUT << "Room type: " << RoomTypechr[R._roomType] << endl;
-		COUT << " Room status: " << RoomStatuschr[R._roomStatus];
-
+		COUT << "Room status: " << RoomStatuschr[R._roomStatus] << endl;
 		return COUT;
 	}
 };

@@ -1,2 +1,5 @@
 ﻿  Source.cpp
-  HotelManagement.vcxproj -> C:\Users\Colic\source\repos\HotelManagement\Debug\HotelManagement.exe
+c:\users\colic\desktop\hotelmanagement\hotelmanagement\source.cpp(51): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\colic\desktop\hotelmanagement\hotelmanagement\source.cpp(52): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\colic\desktop\hotelmanagement\hotelmanagement\source.cpp(53): warning C4305: 'argument': truncation from 'double' to 'float'
+  HotelManagement.vcxproj -> C:\Users\Colic\Desktop\HotelManagement\Debug\HotelManagement.exe

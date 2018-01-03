@@ -2,6 +2,7 @@
 #include<iostream>
 #include"Date.h"
 #include"User.h"
+#include<ctime>
 using namespace std;
 
 bool booked = false;
@@ -107,6 +108,15 @@ public:
 				throw exception("Room doesn't exist");
 				system("pause>0");
 			}
+
+			for (int i = 0; i < _totalRooms; i++) {
+
+				if (strcmp(_rooms[i].getRoomNumber(), roomNumber) == 0)
+					_rooms[i].setRoomReserved();
+				booked = true;
+			}
+			
+			cout << "Room booked successfully" << endl;
 		}
 		catch (exception &e)
 		{
@@ -177,19 +187,23 @@ public:
 
 				cout << "--------ROOM BOOKING--------" << endl;
 				cout << endl;
+
+				if (booked) {
+
+					cout << "you have already booked a room" << endl;
+					system("pause>0");
+					return;
+				}
+				
 				cin.ignore();
-				cout << "please input room number" << endl;
-				cin.getline(roomChoice, 5);
+				do {
+					
+					cout << "please input room number (ex 002)" << endl;
+					cin.getline(roomChoice, 5);
+
+				} while (strlen(roomChoice) != 3);
 
 				this->bookRoom(roomChoice);
-
-				for (int i = 0; i < _totalRooms; i++) {
-
-					if (strcmp(_rooms[i].getRoomNumber(), roomChoice) == 0)
-						_rooms[i].setRoomReserved();
-					booked = true;
-				}
-				cout << "Room booked successfully" << endl;
 			}
 
 			else if (input == 3) {
@@ -199,6 +213,13 @@ public:
 
 				if (!booked) {
 					cout << "You have not booked a room" << endl;
+					system("pause>0");
+					return;
+				}
+
+				if (checkedIn) {
+
+					cout << "You have already checked in" << endl;
 					system("pause>0");
 					return;
 				}

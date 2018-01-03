@@ -19,6 +19,7 @@ Room generateRoom() {
 	cin.ignore();
 	cout << "Please input the room description" << endl;
 	cin.getline(roomDesc, 25);
+	cin.ignore();
 
 	cout << "Please enter the room price" << endl;
 	cin >> roomPrice;
@@ -47,6 +48,10 @@ Room generateRoom() {
 
 int main() {
 
+	Room room1("2 beds", 19.99, AC, Vacant);
+	Room room2("3 beds", 29.99, AC, Vacant);
+	Room room3(" beach view", 119.99, AC, Vacant);
+
 	User *users[2];
 
 	users[0] = new Employee;
@@ -54,6 +59,12 @@ int main() {
 
 	Employee *emp = dynamic_cast<Employee *>(users[0]);
 	Guest * gst = dynamic_cast<Guest *>(users[1]);
+
+	emp->addRoom(room1);
+	emp->addRoom(room2);
+	emp->addRoom(room3);
+
+	system("cls");
 
 	char input;
 
@@ -110,6 +121,7 @@ int main() {
 					}
 					char roomNoInput[5];
 					bool checkRoom = false;
+
 					try
 					{
 						cin.ignore();
@@ -125,13 +137,13 @@ int main() {
 						if (!checkRoom) {
 							throw exception("Room doesnt exist");
 						}
+						
+						emp->modifyRoom(roomNoInput);
 					}
 					catch (exception &e)
 					{
 						cout << e.what() << endl;
 					}
-
-					emp->modifyRoom(roomNoInput);
 				}
 				else if (choice == 3) {
 
