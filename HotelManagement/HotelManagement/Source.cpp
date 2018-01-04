@@ -20,10 +20,16 @@ Room generateRoom() {
 	cin.ignore();
 	cout << "Please input the room description" << endl;
 	cin.getline(roomDesc, 25);
-	cin.ignore();
 
 	cout << "Please enter the room price" << endl;
-	cin >> roomPrice;
+
+	while (!(cin >> roomPrice)) {
+
+		system("cls");
+		cout << "Please enter the room price" << endl;
+		cin.clear();
+		cin.ignore(100, '\n');
+	}
 
 	cout << "Chose the room type" << endl;
 	cout << "1. AC" << endl;
