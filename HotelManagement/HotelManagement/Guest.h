@@ -165,8 +165,16 @@ public:
 
 			do
 			{
-				cin >> input;
-
+				
+				while (!(cin>>input)){
+					system("cls");
+					cout << "1. List rooms" << endl;
+					cout << "2. Book a room" << endl;
+					cout << "3. Check In" << endl;
+					cout << "4. Check Out" << endl;
+					cin.clear();
+					cin.ignore(100, '\n');
+				}
 			} while (input > 4 || input < 1);
 
 
@@ -238,9 +246,15 @@ public:
 				this->_fullName = new char[strlen(name) + 1];
 				strcpy_s(this->_fullName, strlen(name) + 1, name);
 
+				regex regNumbers("^[0-9]{1,45}$");
+
 				char contactNumber[20];
-				cout << "Please input your contact number" << endl;
-				cin.getline(contactNumber, 20);
+				do {
+					cout << "Please input your contact number" << endl;
+					cin.getline(contactNumber, 20);
+
+				} while (regex_match(contactNumber, regNumbers) == false);
+
 				if (this->_contactNumber != nullptr) {
 
 					delete[] _contactNumber;

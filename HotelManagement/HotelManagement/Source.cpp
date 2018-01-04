@@ -33,7 +33,7 @@ Room generateRoom() {
 	{
 		cin >> choice;
 
-	} while (choice<1 || choice>2);
+	} while (choice < 1 || choice>2);
 
 	if (choice == 1)
 		roomType = AC;
@@ -76,13 +76,18 @@ int main() {
 		cout << "2. Guest menu" << endl;
 
 		int inputMenu;
-		
-		while (inputMenu < 1 || inputMenu > 2 && !(cin >> inputMenu)) {
+	
+		do {
 
-			cin >> inputMenu;
-			cin.clear();
-			cin.ignore(100, '\n');
-		}
+			while (!(cin >> inputMenu)) {
+
+				system("cls");
+				cout << "1. Employee menu" << endl;
+				cout << "2. Guest menu" << endl;
+				cin.clear();
+				cin.ignore(100, '\n');
+			}
+		} while (inputMenu < 1 || inputMenu > 2);
 
 		if (inputMenu == 1) {
 
@@ -95,10 +100,16 @@ int main() {
 
 				int choice;
 
-				do
-				{
-					cin >> choice;
+				do {
+					
+					while (!(cin >> choice)) {
+						system("cls");
+						emp->generateMenu();
+						cin >> choice;
+						cin.clear();
+						cin.ignore(100, '\n');
 
+					}
 				} while (choice < 1 || choice > 4);
 
 				if (choice == 1) {
@@ -139,7 +150,7 @@ int main() {
 						if (!checkRoom) {
 							throw exception("Room doesnt exist");
 						}
-						
+
 						emp->modifyRoom(roomNoInput);
 					}
 					catch (exception &e)
@@ -171,16 +182,12 @@ int main() {
 		}
 
 		system("cls");
-
 		cout << "1. employee menu" << endl;
 		cout << "2. guest menu" << endl;
 
 		cout << "  (X=Exit, C = Continue)" << endl;
 
-		cin.ignore();
-
 		cin >> input;
-
 	} while (input != 'x');
 
 	delete[] _rooms;
