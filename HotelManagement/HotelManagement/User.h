@@ -64,5 +64,4 @@ public:
 
 		return _fullName;
 	}
-
 };

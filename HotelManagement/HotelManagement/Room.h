@@ -168,7 +168,6 @@ public:
 		cout << "Please enter a new description" << endl;
 		cin.ignore();
 		cin.getline(newDescription, 50);
-		cin.ignore();
 
 		if (_roomDescription != nullptr) {
 
@@ -178,7 +177,6 @@ public:
 
 		_roomDescription = new char[strlen(newDescription) + 1];
 		strcpy_s(_roomDescription, strlen(newDescription) + 1, newDescription);
-
 		cout << endl;
 		cout << "New room description: " << _roomDescription << endl;
 	}

@@ -268,21 +268,43 @@ public:
 				do
 				{
 					cout << "Day: " << endl;
-					cin >> d;
+
+					while (!(cin >> d)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100,'\n');
+					}
 
 				} while (d < 0);
 
 				do
 				{
 					cout << "Month: " << endl;
-					cin >> m;
+					while (!(cin >> m)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (m < 0);
 
 				do
 				{
 					cout << "Year: " << endl;
-					cin >> y;
+					while (!(cin >> y)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (y < 0);
 
@@ -317,21 +339,43 @@ public:
 				do
 				{
 					cout << "Day: " << endl;
-					cin >> d;
+
+					while (!(cin >> d)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (d < 0);
 
 				do
 				{
 					cout << "Month: " << endl;
-					cin >> m;
+					while (!(cin >> m)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (m < 0);
 
 				do
 				{
 					cout << "Year: " << endl;
-					cin >> y;
+					while (!(cin >> y)) {
+
+						system("cls");
+						cout << "Day: " << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (y < 0);
 

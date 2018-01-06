@@ -5,6 +5,51 @@
 #include"Guest.h"
 using namespace std;
 
+//this function is called when the employee chooses to add a new room
+Room generateRoom() {
+
+	char roomDesc[25];
+	float roomPrice;
+	RoomType roomType;
+	RoomStatus roomStatus;
+	int choice;
+
+	cin.ignore();
+	cout << "Please input the room description" << endl;
+	cin.getline(roomDesc, 25);
+
+	cout << "Please enter the room price" << endl;
+
+	while (!(cin >> roomPrice)) {
+
+		system("cls");
+		cout << "Please enter the room price" << endl;
+		cin.clear();
+		cin.ignore(100, '\n');
+	}
+
+	cout << "Chose the room type" << endl;
+	cout << "1. AC" << endl;
+	cout << "2. NoAC" << endl;
+
+	do
+	{
+		cin >> choice;
+
+	} while (choice < 1 || choice>2);
+
+	if (choice == 1)
+		roomType = AC;
+	else
+		roomType = NoAC;
+
+	roomStatus = Vacant;
+
+	Room room(roomDesc, roomPrice, roomType, roomStatus);
+
+	return room;
+}
+
 class Employee : public User
 {
 	char *_employeeID;
@@ -88,7 +133,18 @@ public:
 
 				do
 				{
-					cin >> input;
+					while (!(cin >> input)) {
+
+						system("cls");
+
+						cout << "1. modify room description" << endl;
+						cout << "2. modify room price" << endl;
+						cout << "3. modify room type" << endl;
+						cout << "4. modify room status" << endl;
+
+						cin.clear();
+						cin.ignore(100, '\n');
+					}
 
 				} while (input > 4 || input < 1);
 
